@@ -1,0 +1,72 @@
+.showcase {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0; /* Lower value to place video behind other content */
+}
+
+.showcase-content {
+  max-width: 850px;
+  margin-top: 15%;
+  padding: 0 95px;
+  position: relative;
+  z-index: 2; /* Higher value to place content in front of video */
+}
+
+.showcase-content h1,
+.showcase-content span,
+.showcase-content p {
+  color: #fff;
+}
+
+.showcase-content h1 {
+  font-size: 60px;
+  margin: 15px 0;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  color: #fff;
+  background: linear-gradient(to right, #0a3609, #55BA53);
+  position: absolute; /* Absolute positioning for precise control */
+  top: 50px;
+  left: 500px; /* 500px from the left */
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 60px; /* Position right below the button */
+  left: 500px; /* 500px from the left, aligned with the button */
+  width: 200px; /* Match the width defined earlier */
+  background: #fff;
+  border: 1px solid #ccc;
+  z-index: 3; /* Even higher value to place dropdown in front of other content */
+  display: none;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
+}
+

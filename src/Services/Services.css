@@ -1,0 +1,90 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    grid-auto-rows: 200px;
+}
+
+.item {
+    position: relative;  /* This will serve as the position context */
+    padding-right: 10px;
+    text-align: right;
+    
+   border: transparent; 
+    background-color: transparent;
+
+    
+    display: flex;
+    flex-direction: column;  /* Stack children vertically */
+    justify-content: center; /* Vertically center content */
+    align-items: center;     /* Horizontally center content */
+}
+
+.text-content {
+    /* Resetting the margins */
+    margin: 0;
+    padding: 30px 0px;
+}
+
+.text-content h3 {
+    margin-top: 0;
+    padding-top: -10px;
+}
+
+.item-title, .item-description {
+  font-size: 12px;
+}
+
+.grid-container .hoverable:hover {
+    background-color: lightgreen;
+}
+
+.grid-container .hoverable .text-content p {
+    display: none; /* Hide the description by default */
+}
+
+.grid-container .hoverable:hover .text-content p {
+    display: block; /* Show the description on hover */
+}
+
+/* ... (rest of your styles) */
+
+.check {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: blue;
+    display: none; /* Initially hidden */
+    font-weight: bold;
+}
+
+.hoverable:hover .check {
+    display: block; /* Show on hover */
+}
+
+/* Cookie Popup Styles */
+
+#accept-cookies {
+    background-color: white;
+    color: darkorange;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Cookie Popup Styles */
+.cookie-popup {
+    position: absolute;
+    z-index: 100000;  /* Updated to make it appear on top */
+    right: 0;
+    top: 10;
+    background-color: darkorange;
+    color: white;
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+

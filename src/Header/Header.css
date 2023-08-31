@@ -1,0 +1,504 @@
+/* Top Navbar */
+.showcase .navbar-top {
+  width: 100%;
+  display: flex;
+  padding: 5px 0; /* Adjust padding here to reduce the height of the strip */
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent; /* Change to white background */
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 11000; /* Higher value than the showcase content */
+  justify-content: center;
+}
+
+.showcase .left,
+.showcase .right {
+  display: flex;
+  list-style: none;
+}
+.showcase .left a {
+  font-weight: normal; /* Set font weight to normal */
+}
+
+.showcase .left li a,
+.showcase .right li a {
+  display: block;
+  font-size: 15px;
+  text-decoration: none;
+  color: #000000; /* Change to black text color */
+  padding: 5px 15px;
+  transition: all 0.5s ease;
+  text-align: center;
+}
+
+.showcase .left li a:hover,
+.showcase .right li a:hover {
+  color: #55BA53;
+}
+
+
+
+.showcase {
+  padding-top: 60px;
+}
+
+/* Bottom Navbar */
+
+.showcase .navbar-bottom {
+  width: 100%;
+  background: transparent;
+  padding: 15px 5px;
+  align-items: center;
+  margin: auto;
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  overflow: visible;
+  z-index: 9999;/* Higher value than the showcase content */
+}
+
+
+.showcase .navbar-bottom .brand-left {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.5s ease;
+}
+
+.showcase .navbar-bottom .menu-right {
+  display: flex;
+  justify-content: center; /* Center the menu items */
+  align-items: center;
+  list-style: none;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+  margin-left: 250px;
+}
+
+
+.showcase .navbar-bottom .menu-right {
+  display: flex;
+  justify-content: center; /* Center the menu items */
+  align-items: center;
+  list-style: none;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+  margin-left: 250px;
+}
+
+.showcase .navbar-bottom .menu-right li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.showcase .navbar-bottom .menu-right .contact-us-button {
+  margin-left: auto; /* Push to the right */
+  margin-right: 400px; /* Keep 100px from the right */
+}
+
+.showcase .navbar-bottom .menu-right a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 20 20px;
+  color: #1A1B1E;
+  transition: all 1s ease;
+  
+}
+
+.showcase .navbar-bottom .menu-right a:hover {
+  color: #55BA53;
+}
+
+.brand-logo {
+  height: auto;
+  width: 100px;
+  margin-left: 100px;
+}
+
+/* Common Dropdown Styles for all dropdowns */
+
+.dropdown {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 250px;
+  /* box-shadow removed */
+  z-index: 8001;
+  top: 80px;
+  transition: transform 0.3s ease; /* transition effect */
+}
+
+.dropdown:hover .dropdown-content {
+  transform: translateX(-20px); /* slide 20px to the left on hover */
+}
+
+.dropbtn {
+  background-color: transparent;
+  color: black;
+  padding: 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content a {
+  display: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: padding-left 0.3s ease; 
+}
+
+.dropdown-content a:hover {
+  padding-left: 20px;
+  color: ;
+   padding-left: 40px; /* Increase padding-left to 40px on hover */
+}
+
+.submenu {
+  display: none;
+  position: relative;
+  padding-left: 50px;
+  transition: padding-left 0.3s ease; /* transition effect */
+}
+
+
+.submenu a {
+  display: block;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.submenu a:hover {
+  background-color: #ddd;
+}
+
+.arrow {
+  margin-right: 5px;
+  transition: transform 0.3s ease;
+}
+
+/* Default styles for submenu links */
+.submenu-link {
+    background: transparent; /* Transparent background */
+    border-radius: 5px; /* Curved corners */
+    transition: padding-left 0.8s ease, background 0.8s ease, color 0.8s ease; /* Transition for smooth hover effect and text slide */
+    padding: 30px 10px; /* Padding around text for better aesthetics */
+    display: inline-block; /* Making it block-level for full width and easier hover */
+    color: black; /* Default color */
+    font-size: 16px;
+    margin-bottom:20px;
+    white-space: nowrap;
+}
+
+/* Styles when hovering over submenu links */
+.submenu-link:hover {
+    background: #f5f5f5; /* Smoke white background (80% opacity) */
+    color: lightgreen; /* Light green text */
+    padding-right: 30px; /* Slide text to the left on hover */
+}
+
+
+
+.showcase .navbar-top {
+  z-index: 8000; /* Higher value than the showcase content */
+  position: fixed;
+}
+
+
+.services-dropdown {
+  z-index: 9999; /* Very high z-index value */
+}
+
+.dropdown-content.active .down-arrow {
+  transform: rotate(180deg);
+}
+
+
+/* Apply animation to Careers dropdown */
+.submenu-link.careers-dropdown:hover + .submenu.careers-dropdown {
+  display: block;
+  transform: translateX(-20px); /* slide 20px to the left on hover */
+}
+
+/* Apply animation to Professionals dropdown */
+.submenu-link.professionals-dropdown:hover + .submenu.professionals-dropdown {
+  display: block;
+  transform: translateX(-20px); /* slide 20px to the left on hover */
+}
+
+/* Apply animation to Home dropdown */
+.submenu-link.home-dropdown:hover + .submenu.home-dropdown {
+  display: block;
+  transform: translateX(-20px); /* slide 20px to the left on hover */
+}
+
+
+.slide-left {
+  position: relative;
+  transition: left 0.3s ease-in-out;
+  display: inline-block;
+}
+
+.slide-left:hover {
+  left: -5px; /* Adjust the value to control the amount of slide */
+}
+
+.slide-left {
+  position: relative;
+  transition: left 0.3s ease-in-out;
+  color: black; /* Maintain the original text color */
+  max-width: 300px; /* Adjust the width as needed */
+  display: inline-block;
+}
+
+.slide-left:hover {
+  left: -5px; /* Adjust the value to control the amount of slide */
+}
+
+
+
+.slide-left:hover {
+  left: -5px; /* Adjust the value to control the amount of slide */
+}
+
+.slide-left:hover::before {
+  opacity: 1;
+  left: -10px; /* Adjust the value for the space between text and arrow */
+}
+
+ .teams-dropdown .submenu-link,
+  .professionals-dropdown .submenu-link {
+    position: relative;
+    overflow: hidden;
+    transition: max-width 0.3s ease-in-out;
+    
+  }
+
+  
+  .navbar-bottom {
+  /* Existing styles... */
+  transition: height 2s ease, width 2s ease; /* 1-second transition for height and width */
+  transition: background-color 0.5s ease; /* Smooth transition for background color */
+  z-index: 2000; /* Higher than the extended dropdown */
+}
+
+.services-dropdown .dropdown-content {
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  left: 0;
+  position: absolute;
+  display: none;
+  /* Other styles as needed */
+}
+
+
+.services-dropdown:hover .extended-dropdown {
+  display: block; /* Show the extended content on hover */
+}
+
+.services-dropdown:hover .navbar-bottom {
+  background-color: #ffffff; /* Change color to white */
+  height: calc(100% + 200px); /* Extend below by 200px */
+}
+
+.services-dropdown:hover .dropdown-content {
+  display: none; /* Show the Services dropdown content on hover */
+}
+
+.services-dropdown:hover ~ .navbar-bottom {
+  background-color: #ffffff; /* Change color to white */
+}
+.services-dropdown:hover ~ .navbar-bottom,
+.services-dropdown:hover .extended-dropdown {
+  background-color: #ffffff; /* Change color to white */
+}
+
+.services-dropdown:hover ~ .navbar-bottom,
+.portfolio-dropdown:hover ~ .navbar-bottom,
+.teams-dropdown:hover ~ .navbar-bottom {
+  background-color: #ffffff; /* Change color to white */
+}
+.dropdown:hover ~ .navbar-bottom,
+.services-dropdown:hover ~ .navbar-bottom {
+  background-color: #ffffff; /* Change color to white */
+}
+
+
+.navbar-extension {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
+  background-color: white; /* Or any desired color */
+}
+
+.navbar-bottom:hover .navbar-extension {
+  height: 200px;
+}
+
+.showcase .navbar-bottom {
+  transition: height 0.3s ease; /* Add transition for height */
+}
+
+.showcase .navbar-bottom .dropdown-content {
+  background-color: #ffffff; /* Set the background color to white */
+  top: 100%; /* Position it right under the navbar */
+  min-height: 200px; /* Set a minimum height to extend the navbar */
+  overflow: hidden; /* Hide overflow content */
+}
+
+.services-dropdown:hover .navbar-bottom {
+  height: calc(100% + 200px); /* Extend the height of the navbar */
+}
+
+.services-dropdown:hover .dropdown-content {
+  display: none; /* Show the dropdown content */
+}
+
+
+
+
+.services-dropdown .dropdown-content {
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  left: 0;
+  position: absolute;
+  display: none;
+  /* Other styles as needed */
+}
+
+.services-dropdown:hover .extended-dropdown {
+  display: block; /* Show the extended content on hover */
+}
+
+.services-dropdown:hover .navbar-bottom {
+  background-color: #ffffff; /* Change color to white */
+  height: calc(100% + 200px); /* Extend below by 200px */
+}
+
+.services-dropdown:hover .dropdown-content {
+  display: none; /* Show the Services dropdown content on hover */
+}
+
+.showcase .navbar-bottom .dropdown-content {
+  background-color: #ffffff; /* Set the background color to white */
+  top: 100%; /* Position it right under the navbar */
+  min-height: 200px; /* Set a minimum height to extend the navbar */
+  overflow: hidden; /* Hide overflow content */
+}
+
+.extended-dropdown {
+  position: absolute; /* Absolute positioning */
+  top: 100%; /* Positioned right below the navbar */
+  left: 0; /* Align to the left edge */
+  right: 0; /* Align to the right edge */
+  width: 100%; /* Full width */
+  /* Other styles as needed */
+}
+
+.showcase .navbar-top {
+  width: 100%;
+  display: flex;
+  padding: 5px 0;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  top: 0;
+  left: 0;
+  position: fixed; /* Fixed position */
+  z-index: 20000; /* High z-index */
+  justify-content: center;
+}
+
+
+.extended-dropdown {
+  position: absolute; /* Absolute positioning */
+  top: 100%; /* Positioned right below the navbar */
+  left: 0; /* Align to the left edge */
+  right: 0; /* Align to the right edge */
+  width: 100%; /* Full width */
+  display: none; /* Hide initially */
+  transition: all 2s ease; /* 2-second transition */
+}
+
+.services-dropdown:hover .extended-dropdown {
+  display: block; /* Show the extended content on hover */
+}
+
+
+
+.navbar-container {
+  position: relative;
+}
+
+.extended-dropdown {
+  position: absolute; /* Absolute positioning */
+  top: 100%; /* Positioned right below the navbar */
+  left: 0; /* Align to the left edge */
+  right: 0; /* Align to the right edge */
+  width: 100%; /* Full width */
+  display: none; /* Hide initially */
+  transition: all 2s ease; /* 2-second transition */
+}
+
+.services-dropdown:hover .extended-dropdown {
+  display: block; /* Show the extended content on hover */
+}
+.visible {
+  display: grid; /* or any other display value you prefer */
+}
+
+
+.services-content {
+  height: 220px; /* Example height for services */
+}
+
+.portfolio-content {
+  height: 450px; /* Example height for portfolio */
+}
+
+.teams-content {
+  height: 300px; /* Example height for teams */
+}
+
+.sticky-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures the navbar stays above other content */
+}
+
+.extended-dropdown {
+    padding-left: 120px;
+    padding-right: 100px; 
+}
+
+
+.showcase .navbar-top .left a, 
+.showcase .navbar-top .left a:hover, 
+.showcase .navbar-top .left a:active, 
+.showcase .navbar-top .left a:visited {
+    text-decoration: none; /* Removes underline */
+}
+

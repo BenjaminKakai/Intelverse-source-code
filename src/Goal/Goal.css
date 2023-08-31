@@ -1,0 +1,122 @@
+#goal {
+    display: flex;
+    padding-top: 20px;
+    background: linear-gradient(to right, black 33%, #F5F5F5 33%);
+    align-items: center;
+    min-height: 500px;
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+    margin-left: 45%;
+}
+
+#goal .goal-img {
+    flex: 1;
+    width: 65%;  /* Increased from 50% to 65% */
+    height: auto;
+    overflow: hidden;
+    margin-left: 10%;  /* Adjusted the margin to 10% to account for increased width */
+}
+
+#goal .goal-img img {
+    width: 120%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    position: relative;
+    left: -15%;
+}
+
+#goal .goal-text {
+    flex: 2;
+    margin: 0 40px;  /* Adjusted margin from 60px to 40px to account for increased image width */
+    color: black;
+}
+
+#goal .goal-text h2 {
+    margin-bottom: 20px;
+}
+
+.read-more-btn {
+    padding: 10px 20px;
+    border: 2px solid lightgreen;
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+    margin-top: 15px;
+    position: absolute;
+    right: 150px;
+    font-weight: bold;
+}
+
+.read-more-btn:hover {
+    background-color: lightgreen;
+    color: black;
+}
+
+.goal-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.slides-container {
+    display: flex;
+}
+
+.goal {
+    flex: 1;
+}
+
+.customer-stories {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+}
+
+.nav-arrows {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.arrow {
+    font-size: 24px;
+    color: blue;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.arrow:hover {
+    opacity: 0.7;
+}
+
+@keyframes slideInAndFadeOut {
+    0% {
+        transform: translateX(100%);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    80% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+    animation: slideInAndFadeOut 20s forwards; /* 10s for slide-in + 10s for staying visible */
+}
+

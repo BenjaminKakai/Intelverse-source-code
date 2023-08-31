@@ -1,0 +1,136 @@
+#portfolio {
+  background: #0A2940;
+  padding: 2rem 0;
+}
+
+.portfolio h3 {
+  color: White;
+  font-size: 20px;
+  padding-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: left; /* Left aligned */
+  padding-left: 150px; /* Added padding to align with the content */
+}
+
+.portfolio-content {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 200px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.image-section img {
+  width: 300px;
+  height: 400px; 
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.content-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.image-heading {
+  color: #95A2BB;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left; /* Left aligned */
+}
+
+.image-description {
+  color: white;
+  font-size: 14px;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  text-align: left; /* Left aligned */
+}
+
+.read-more-button {
+  display: inline-block;
+  background: #006400;
+  color: white;
+  padding: 10px 15px; /* Adjusted padding to control width */
+  width: 120px; /* Specified width for the button */
+  text-align: center; /* Centered the text */
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.carousel-boxes {
+  display: flex;
+  justify-content: flex-start;
+  border: 1px solid #006400;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: -120px;
+  width: 60%;
+  margin-left: 530px;
+  margin-right: auto;
+}
+
+.carousel-box {
+  flex: 1;
+  height: 50px;
+  background-color: #006400;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid white;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+  padding: 0 5px;
+}
+
+.carousel-box:last-child {
+  border-right: none;
+}
+
+.carousel-box:hover {
+  background-color: #004d00;
+}
+
+
+.industry-expertise {
+  font-size: 20px; /* Adjust size if needed */
+  margin-right: 150px; /* Provides spacing between the two parts */
+}
+
+.industry-query {
+  font-size: 18px; /* Adjust size if needed */
+}
+
+.industry-expertise, .industry-query {
+  text-transform: none;
+}
+
+.lets-talk-btn {
+  background-color: #006400; /* Green color */
+  color: #ADFF2F; /* Light green text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.lets-talk-btn:hover {
+  background-color: #ADFF2F; /* Light green on hover */
+  color: #006400; /* Green text on hover */
+}
+
+

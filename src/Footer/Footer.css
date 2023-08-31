@@ -1,0 +1,172 @@
+.footer {
+  background-color: #F5F5F5; 
+  color: #333;
+  padding: 20px;
+}
+
+.footer__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer__col {
+  flex: 1;
+  padding: 20px;
+  display: flex; /* Added to make the sub columns align in a row */
+  flex-direction: row; /* Ensures the sub-columns are arranged in a row */
+}
+
+.footer__col h3 {
+  margin-bottom: 0px;  /* Adjust margin-bottom to 0 */
+  margin-top: 5px;    /* You can adjust this value to increase or decrease the top margin */
+  padding-left: 0px; /* Adjust as needed */
+}
+
+.footer__col ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 60px;  /* Adjust margin-top to set space between heading and the list */
+}
+
+
+
+.footer__col ul li {
+  margin-bottom: 8px;
+}
+
+.footer__col ul li a {
+  color: #555;
+  text-decoration: none;
+}
+
+.footer__subcol {
+  flex: 1;
+  padding-left: -5px; /* Adjust as needed */
+}
+
+.footer__contact-box {
+    background-color: #e0e0e0; 
+    padding: 15px;
+    margin-top: 20px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    position: relative; 
+}
+
+
+.icon-wrapper {
+  display: inline-block;
+  width: 24px;
+  text-align: center;
+}
+
+.footer__email-section {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.footer__email-section img {
+  margin-right: 10px;
+}
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.footer__bottom-text {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.footer__social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.footer__social-icons a img {
+  width: 24px;
+  height: 24px;
+}
+
+
+.lets-talk-button {
+    background-color: #4CAF50; /* Light green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding around the text */
+    border: none; /* Remove default border */
+    border-radius: 25px; /* Rounded corners */
+    cursor: pointer; /* Hand cursor on hover */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.lets-talk-button:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+}
+
+.footer__left-section {
+    flex: 3; /* This ensures that the left section takes up the same amount of space as the services column */
+    display: flex;
+    flex-direction: column;
+}
+
+
+.contact-box__info {
+    flex: 3;
+}
+
+.contact-box__email {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.more-offices-link {
+    position: absolute; 
+    bottom: 10px; 
+    right: 10px; 
+    color: #4CAF50; 
+    text-decoration: none;
+    transition: color 0.3s; 
+}
+
+.more-offices-link:hover {
+    color: #45a049; 
+}
+
+.footer__col h3 {
+    color: grey;
+}
+
+
+.footer__col ul li a:hover,
+.footer__col ul li:hover {
+    color: #4CAF50;
+}
+
+.footer__col ul li:nth-child(1) {
+    color: grey;
+}
+
+
+.footer__col ul li:not(:nth-child(1)):hover {
+    color: #4CAF50;
+}
+
+
+
+
+.sub-heading {
+    color: grey;
+    margin-top: 10px; /* You can adjust the top margin */
+    margin-bottom: 10px; /* You can adjust the bottom margin */
+    
+}
+

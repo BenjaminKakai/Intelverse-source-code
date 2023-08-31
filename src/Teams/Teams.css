@@ -1,0 +1,116 @@
+/* Teams Section Styling */
+#teams h3 {
+  color: #FF8C00; /* Dark Orange */
+  font-size: 14px;
+  padding-bottom: 20px;
+  text-transform: uppercase;
+}
+#teams h2 {
+  font-size: 20px;
+  font-weight: 60;
+  color: #FF8C00; /* Dark Orange */
+  margin-bottom: 20px;
+}
+#teams p {
+  color: #FF8C00; /* Dark Orange */
+  line-height: 1.6;
+  margin-bottom: 100px;
+}
+
+
+#teams .wrapper .card-items-row {
+  display: flex;
+  margin: 20px 0;
+  justify-content: space-evenly;
+  overflow: hidden;
+}
+
+/*
+#teams .wrapper .card {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f6f6f6;
+  border-radius: 5px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 450px; 
+  z-index: 1;
+  transition: all 0.5s ease;
+}
+*/
+
+#teams .wrapper .card:hover {
+  background: #0A2940;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+#teams .wrapper .card .card-header {
+  display: inline-block;
+  width: 390px; /* Increased the width */
+  height: 190px; /* Increased the height */
+  overflow: hidden;
+  margin: 30px auto;
+  transform: translateY(40px);
+}
+#teams .wrapper .card .card-header img {
+  width: 100%;
+  height: auto;
+}
+#teams .wrapper .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: 200px;
+}
+#teams .wrapper .card h3 {
+  font-size: 16px;
+  color: #FF8C00; /* Dark Orange */
+  padding-top: 30px;
+}
+#teams .meet-team-btn {
+  background-color: darkgreen;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  align-self: flex-end;
+  transition: background-color 0.3s ease;
+}
+#teams .meet-team-btn:hover {
+  background-color: #006400;
+}
+
+#teams:target::before {
+  content: "";
+  display: block;
+  height: 100px; /* Adjust this value to match the height of your navigation bar */
+  margin: -100px 0 0; /* Negative value of the height */
+}
+
+#portfolio, #teams {
+  background: #0A2940; /* Dark blue color */
+}
+
+#teams {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+
+.lets-talk-btn {
+  background-color: lightgreen;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-left: 1200px;  /* Add a margin to separate the button from the text */
+  transition: background-color 0.3s ease;
+}
+
+.lets-talk-btn:hover {
+  background-color: darkgreen;
+}
+

@@ -1,0 +1,14 @@
+.extended-dropdown {
+  display: grid; /* Enable Grid */
+  grid-template-columns: 1fr 1fr 1fr; /* Three equal-width columns */
+}
+
+.extended-dropdown .column {
+  display: flex;
+  flex-direction: column; /* Arrange items vertically within each column */
+}
+
+.services-dropdown:hover .dropdown-content {
+  display: grid; /* Or 'block', depending on other styles */
+}
+
