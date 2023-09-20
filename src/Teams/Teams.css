@@ -1,62 +1,65 @@
 /* Teams Section Styling */
-#teams h3 {
+#teams {
+  margin-top: 0px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+#teams h3, #teams h2, #teams p {
   color: #FF8C00; /* Dark Orange */
+}
+
+#teams h3 {
   font-size: 14px;
   padding-bottom: 20px;
   text-transform: uppercase;
 }
+
 #teams h2 {
   font-size: 20px;
   font-weight: 60;
-  color: #FF8C00; /* Dark Orange */
   margin-bottom: 20px;
 }
+
 #teams p {
-  color: #FF8C00; /* Dark Orange */
   line-height: 1.6;
   margin-bottom: 100px;
 }
-
 
 #teams .wrapper .card-items-row {
   display: flex;
   margin: 20px 0;
   justify-content: space-evenly;
   overflow: hidden;
+  flex-wrap: wrap; /* Allow wrapping for all screen sizes */
 }
 
-/*
 #teams .wrapper .card {
+  flex: 0 0 calc(50% - 40px); /* Two cards per row by default */
   margin: 20px;
-  display: flex;
-  flex-direction: column;
-  background-color: #f6f6f6;
-  border-radius: 5px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  width: 450px; 
-  z-index: 1;
   transition: all 0.5s ease;
 }
-*/
 
 #teams .wrapper .card:hover {
   background: #0A2940;
   transform: scale(1.05);
   cursor: pointer;
 }
+
 #teams .wrapper .card .card-header {
   display: inline-block;
-  width: 390px; /* Increased the width */
-  height: 190px; /* Increased the height */
+  width: 390px;
+  height: 190px;
   overflow: hidden;
   margin: 30px auto;
   transform: translateY(40px);
 }
+
 #teams .wrapper .card .card-header img {
   width: 100%;
   height: auto;
 }
+
 #teams .wrapper .card-body {
   display: flex;
   flex-direction: column;
@@ -65,11 +68,12 @@
   padding: 20px;
   min-height: 200px;
 }
+
 #teams .wrapper .card h3 {
   font-size: 16px;
-  color: #FF8C00; /* Dark Orange */
   padding-top: 30px;
 }
+
 #teams .meet-team-btn {
   background-color: darkgreen;
   color: white;
@@ -79,6 +83,7 @@
   align-self: flex-end;
   transition: background-color 0.3s ease;
 }
+
 #teams .meet-team-btn:hover {
   background-color: #006400;
 }
@@ -86,12 +91,12 @@
 #teams:target::before {
   content: "";
   display: block;
-  height: 100px; /* Adjust this value to match the height of your navigation bar */
-  margin: -100px 0 0; /* Negative value of the height */
+  height: 100px;
+  margin: -100px 0 0;
 }
 
 #portfolio, #teams {
-  background: #0A2940; /* Dark blue color */
+  background: #0A2940;
 }
 
 #teams {
@@ -99,18 +104,46 @@
   padding-bottom: 0;
 }
 
-
 .lets-talk-btn {
   background-color: lightgreen;
   color: white;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-  margin-left: 1200px;  /* Add a margin to separate the button from the text */
+  margin-left: auto; /* Adjusted for responsive layout */
   transition: background-color 0.3s ease;
 }
 
 .lets-talk-btn:hover {
   background-color: darkgreen;
+}
+
+/* Media Queries */
+@media (max-width: 960px) {
+  #teams .wrapper .card-items-row {
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards */
+  }
+
+  #teams .wrapper .card {
+    flex: 0 0 100%;
+    margin: 10px 0;
+  }
+
+  .d-flex.align-items-center {
+    flex-direction: column; /* Stack the title and button vertically */
+    align-items: flex-start;
+  }
+
+  .lets-talk-btn {
+    margin-left: 0; /* Reset the margin for smaller screens */
+  }
+}
+
+/* Three columns layout for screens wider than 13 inches (approx. 1040px) */
+@media (min-width: 1040px) {
+  #teams .wrapper .card {
+    flex: 0 0 calc(33.33% - 40px); /* One third of the container minus 40 pixels */
+  }
 }
 

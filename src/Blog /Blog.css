@@ -9,18 +9,19 @@
         opacity: 1;
     }
     50% {
-        transform: translateX(-40%);
+        transform: translateX(0);
         opacity: 1;
     }
     80% {
-        transform: translateX(-40%);
+        transform: translateX(0);
         opacity: 1;
     }
     100% {
-        transform: translateX(-40%);
+        transform: translateX(0);
         opacity: 0;
     }
 }
+
 
 #blog .wrapper .header {
     display: flex;
@@ -177,4 +178,153 @@
 #blog .wrapper .large-card {
     width: calc(75% - 10px);  /* Adjusted from 66.66% to 75% */
 }
+
+
+
+/* Blog Section Styling */
+#blog {
+    background: linear-gradient(to right, #000 33%, #F5F5F5 33%, #F5F5F5 100%);
+}
+
+
+
+
+
+/* ... [Your existing CSS before the media queries] ... */
+
+/* Default mobile-first styling */
+#blog {
+    background: #000; /* Black background */
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: flex-start; /* Align items to the start */
+}
+
+.white-link.view-all-button {
+    padding: 10px 20px; /* Add padding around the text */
+    background-color: #55BA53; /* Light green background */
+    border-radius: 5px; /* Rounded corners */
+    color: #fff; /* White text */
+    text-decoration: none; /* Remove underline */
+    transition: 0.3s; /* Smooth transition for hover effects */
+    align-self: flex-end; /* Align the button to the end of the flex container */
+    margin-top: 20px; /* Add some top margin for spacing */
+    display: inline-block; /* Display the original View All button by default */
+}
+
+.white-link.view-all-inline {
+    display: none; /* Hide the new inline View All button by default */
+}
+
+.white-link.view-all-button:hover, .white-link.view-all-inline:hover {
+    background-color: #3f8a3a; /* Darken the background on hover */
+}
+
+/* Styling for screens 13 inches wide or less */
+@media screen and (max-width: 13in) {
+    .blog-info {
+        order: 1; /* Ensure blog-info section appears first */
+    }
+
+    .resources {
+        display: flex;
+        gap: 20px; /* Spacing between Resources and Articles links */
+    }
+
+    .white-link.view-all-button {
+        display: none; /* Hide the original View All button */
+    }
+
+    .resources .view-all-inline {
+        display: inline-block; /* Show the new inline View All button */
+        margin-left: 20px; /* Some spacing after "Articles" */
+    }
+
+    .blog-card {
+        order: 2; /* Ensure blog-card appears after blog-info */
+        padding-top: 200px; /* Use padding to push the content down */
+    }
+
+    .blog-card .card {
+        height: auto; /* Change to auto, as percentage might not work as expected */
+        width: 100%; /* Full width */
+    }
+
+    .blog-card .card .card-header img {
+        height: 100px; /* Reduce image height */
+    }
+}
+
+/* Styling for screens wider than 13 inches */
+@media screen and (min-width: 13.01in) {
+    #blog {
+        background: linear-gradient(to right, #000 33%, #F5F5F5 33%, #F5F5F5 100%); /* Original background */
+    }
+
+    .wrapper {
+        flex-direction: row; /* Lay children out horizontally */
+    }
+}
+
+/* ... [Your existing CSS after the media queries] ... */
+
+
+#blog {
+    margin: 0;
+    padding: 0;
+}
+
+
+#blog .wrapper > * {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Styling for screens 992px wide or less */
+@media screen and (max-width: 992px) {
+    #blog .wrapper .blog-card .card, 
+    #blog .wrapper .blog-card .large-card {
+        width: 100%; /* Set cards to full width */
+    }
+}
+
+
+
+/* ... [All the existing CSS before the modifications] ... */
+
+/* Ensure the wrapper is centered */
+.wrapper {
+    justify-content: center;
+}
+
+/* Remove any potential left margin and padding from the blog card */
+#blog .wrapper .blog-card {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+/* Styling for screens 992px wide or less */
+@media screen and (max-width: 992px) {
+    #blog .wrapper .blog-card .card, 
+    #blog .wrapper .blog-card .large-card {
+        width: 100%; /* Set cards to full width */
+        margin-left: 0; /* Ensure no left margin */
+        padding-left: 0; /* Ensure no left padding */
+    }
+}
+
+/* ... [All the existing CSS after the modifications] ... */
 

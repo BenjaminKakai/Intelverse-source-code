@@ -18,7 +18,7 @@ function Blog() {
 
     return (
         <section id="blog" className="blog py-3">
-            <div className="wrapper">
+            <div className="wrapper" style={{ flexDirection: 'column' }}>
                 <div className="header">
                     <span></span>
                 </div>
@@ -30,8 +30,9 @@ function Blog() {
                     <div className="resources">
                         <a className="resource" href="#">Resources</a>
                         <a className="resource" href="#">Articles</a>
+                        <a href="https://intelliverseai.com/blog/" className="white-link view-all-inline">view all</a> {/* New inline View All button */}
                     </div>
-                    <a href="https://intelliverseai.com/blog/" className="white-link view-all-button">view all</a>
+                    
                 </div>
                 <div className="blog-card">
                     {currentCard === 1 && (

@@ -1,16 +1,16 @@
 #portfolio {
-  background: #0A2940;
+  background: #F5F5F5; /* Super light smoke white */
   padding: 2rem 0;
 }
 
 .portfolio h3 {
-  color: White;
+  color: black; /* Changed to black */
   font-size: 20px;
   padding-bottom: 20px;
   text-transform: uppercase;
   font-weight: 500;
-  text-align: left; /* Left aligned */
-  padding-left: 150px; /* Added padding to align with the content */
+  text-align: left;
+  padding-left: 200px;
 }
 
 .portfolio-content {
@@ -19,15 +19,9 @@
   padding-left: 200px;
 }
 
-.item {
-  display: flex;
-  align-items: center;
-  margin: 1rem 0;
-}
-
 .image-section img {
   width: 300px;
-  height: 400px; 
+  height: 400px;
   object-fit: cover;
   margin-right: 20px;
 }
@@ -37,34 +31,36 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-left: 30px;
 }
 
 .image-heading {
-  color: #95A2BB;
+  color: black; /* Changed to black */
   font-weight: bold;
   margin-bottom: 10px;
-  text-align: left; /* Left aligned */
+  text-align: left;
 }
 
 .image-description {
-  color: white;
+  color: black; /* Changed to black */
   font-size: 14px;
   padding: 10px 0;
   margin-bottom: 10px;
-  text-align: left; /* Left aligned */
+  text-align: left;
 }
 
 .read-more-button {
   display: inline-block;
-  background: #006400;
+  background: #006400; /* Changed to green for visibility */
   color: white;
-  padding: 10px 15px; /* Adjusted padding to control width */
-  width: 120px; /* Specified width for the button */
-  text-align: center; /* Centered the text */
+  padding: 10px 15px;
+  width: 120px;
+  text-align: center;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
   margin-bottom: 20px;
+  margin-left: 530px;  /* Added left margin to move the button to the right */
 }
 
 .carousel-boxes {
@@ -73,24 +69,24 @@
   border: 1px solid #006400;
   border-radius: 5px;
   overflow: hidden;
-  margin-top: -120px;
-  width: 60%;
-  margin-left: 530px;
+  margin-top: -210px;
+  width: 40%;
+  margin-left: 500px;
   margin-right: auto;
 }
 
 .carousel-box {
   flex: 1;
-  height: 50px;
-  background-color: #006400;
-  color: white;
+  height: 160px;
+  background-color: #f5f5f5;
+  color: black;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 10px;
   border-right: 1px solid white;
   cursor: pointer;
-  text-align: center;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   font-size: 0.9rem;
   padding: 0 5px;
 }
@@ -100,17 +96,24 @@
 }
 
 .carousel-box:hover {
-  background-color: #004d00;
+  background-color: #ADFF2F;
+  color: black;
 }
 
+.carousel-box.selected {
+  background-color: black;
+  color: #ADFF2F;
+}
 
 .industry-expertise {
-  font-size: 20px; /* Adjust size if needed */
-  margin-right: 150px; /* Provides spacing between the two parts */
+  font-size: 20px;
+  margin-right: 150px;
+  color: black; /* Changed to black */
 }
 
 .industry-query {
-  font-size: 18px; /* Adjust size if needed */
+  font-size: 18px;
+  color: black; /* Changed to black */
 }
 
 .industry-expertise, .industry-query {
@@ -118,8 +121,8 @@
 }
 
 .lets-talk-btn {
-  background-color: #006400; /* Green color */
-  color: #ADFF2F; /* Light green text */
+  background-color: #006400;
+  color: #ADFF2F;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -129,8 +132,78 @@
 }
 
 .lets-talk-btn:hover {
-  background-color: #ADFF2F; /* Light green on hover */
-  color: #006400; /* Green text on hover */
+  background-color: #ADFF2F;
+  color: #006400;
 }
 
+@media only screen and (max-width: 1344px) {
+  #portfolio h3 {
+    padding-left: 5px;
+  }
+
+  .portfolio-content {
+    padding-left: 5px;
+    padding-right: 60px;
+  }
+
+  .image-section img {
+    width: 180px;
+    height: 240px;
+  }
+
+  .content-section {
+    padding-left: 5px;
+  }
+
+  .read-more-button {
+    padding: 6px 9px;
+    width: 90px;
+  }
+
+  .industry-expertise, .industry-query, .lets-talk-btn {
+    font-size: 16px;
+  }
+
+  .image-heading, .image-description {
+    font-size: 12px;
+  }
+
+  .lets-talk-btn {
+    margin-left: auto;
+  }
+
+  .outer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  .inner-container {
+    width: 100%;
+  }
+}
+
+.industry-query-container {
+    padding-left: 500px;
+}
+
+@media only screen and (max-width: 1248px) {
+  .text-center {
+    flex-wrap: wrap;
+  }
+
+  .industry-query, .lets-talk-btn {
+    flex-basis: 100%;
+    text-align: left;
+  }
+
+  .lets-talk-btn {
+    margin-top: 10px;
+  }
+
+  .carousel-boxes {
+    display: none;
+  }
+}
 

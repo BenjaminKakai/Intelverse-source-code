@@ -1,0 +1,157 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.main-content {
+  min-height: calc(100vh - 100px); /* Ensure the main content takes up the full height minus the .white-strip */
+  padding-bottom: 100px; /* Added padding-bottom to main-content */
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(-10%);
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.strip-container {
+  bottom: 0;
+  width: 100vw;
+  height: 200px;
+  display: flex;
+}
+
+.section {
+  flex: 1;
+  height: 100%;
+}
+
+.section-divider, .divider {
+  width: 1px;
+  background-color: white;
+  height: 80%;
+  margin: auto 0;
+}
+
+.client-logos {
+  width: 100vw;
+  height: 100px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.client-logos span {
+  padding-left: 270px;
+  position: absolute;
+  z-index: 2;
+}
+
+.logo-slider {
+  display: flex;
+  animation: slideLeft 240s linear infinite;
+}
+
+.client-logo {
+  margin-left: 50px;
+  animation: slide 40s linear infinite;
+  position: relative;
+  width: calc(60px + 1.5vw);
+  height: calc(40px + 1.5vh);
+}
+
+.client-logo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  transition: all 0.1s ease;
+}
+
+.client-logo:hover {
+  transform: scale(1.2);
+  z-index: 10;
+  box-shadow: 10px 10px 10px 10px red;
+}
+
+.client-logo:hover::before {
+  border-color: red;
+  z-index: -1;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+.white-strip {
+  width: 100vw;
+  height: 100px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+  z-index: 200000;
+  overflow: hidden;
+  position: fixed; /* Changed position to fixed */
+  bottom: 0;       /* Added bottom: 0 */
+  left: 0;         /* Added left: 0 */
+  margin-left: 0;
+}
+
+.our-clients {
+  color: black;
+  z-index: 2;
+  align-self: center;
+}
+
+.client-logos {
+  align-self: flex-end;
+}
+
+@media only screen and (max-width: 832px) {
+  .white-strip {
+    padding-left: 0;
+  }
+
+  .logo-slider {
+    margin-left: 0;
+  }
+}
+
+.sticky-container {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+
+
+

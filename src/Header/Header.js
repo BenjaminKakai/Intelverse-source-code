@@ -1,20 +1,58 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import '../boxicons-2.0.9/css/boxicons.min.css';
 import './Header.css';
-import './headerservices.css'; 
+import './headerservices.css';
+import './ResponsiveHeader.css';
+import Contact from '../Contact/Contact';
 
-// Rest of the code...
+
+
 function Header() {
   const logoPath = '/images/logo.png';
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const dropdownRef = useRef(null);
+  const [clickedItem, setClickedItem] = useState(null);
+  
+const [showContactForm, setShowContactForm] = useState(false);  // Declare state variable
+
+  // Declare the showSubItems state
+  const [showSubItems, setShowSubItems] = useState({});
+
+  // Handle item click to toggle sub-items
+  const handleItemClick = (item) => {
+    setClickedItem(item);
+    const newShowSubItems = { ...showSubItems };
+    newShowSubItems[item] = !newShowSubItems[item];
+    setShowSubItems(newShowSubItems);
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownVisible(!isDropdownVisible);
+  };
+
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownVisible(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       const navbarBottom = document.querySelector('.navbar-bottom');
-      const navbarTop = document.querySelector('.navbar-top');  // Select the top navbar
+      const navbarTop = document.querySelector('.navbar-top');
 
-      navbarTop.style.backgroundColor = '#ffffff';  // Always set top navbar's background to white
+      navbarTop.style.backgroundColor = '#ffffff';
 
       if (window.scrollY > 0) {
         navbarBottom.style.backgroundColor = '#ffffff';
@@ -30,7 +68,6 @@ function Header() {
   }, []);
 
   const handleMouseEnter = (contentType) => {
-    // Hide previously active dropdown
     if (activeDropdown) {
       document.querySelector(`.${activeDropdown}-content`).style.display = 'none';
     }
@@ -54,10 +91,10 @@ function Header() {
     }
 
     if (dropdownContent) {
-      dropdownContent.style.display = 'grid'; // Show as grid
+      dropdownContent.style.display = 'grid';
     }
 
-    setActiveDropdown(contentType); // Set the new active dropdown
+    setActiveDropdown(contentType);
   };
 
   const handleMouseLeave = (e, contentType) => {
@@ -68,10 +105,31 @@ function Header() {
     if (activeDropdown) {
       document.querySelector(`.${activeDropdown}-content`).style.display = 'none';
       const navbarBottom = document.querySelector('.navbar-bottom');
-      navbarBottom.style.backgroundColor = 'transparent'; // Reset to transparent
-      setActiveDropdown(null); // Reset the active dropdown
+      navbarBottom.style.backgroundColor = 'transparent';
+      setActiveDropdown(null);
     }
   };
+
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setShowMobileMenu(!showMobileMenu);
+  };
+
+  useEffect(() => {
+    const updateScreenSize = () => {
+      setIsSmallScreen(window.innerWidth < 1300);
+    };
+
+    updateScreenSize();
+    window.addEventListener('resize', updateScreenSize);
+
+    return () => {
+      window.removeEventListener('resize', updateScreenSize);
+    };
+  }, []);
+
+
   
   
   return (
@@ -316,47 +374,309 @@ function Header() {
     
 
 <div className="navbar-wrapper">
-    <li className="contact-us-button">
-        <div className="dropdown">
-            <Link 
-                to="/contact" 
-                className="dropbtn"
-                style={{ 
-                    backgroundColor: 'green',  // Start with a green background
-                    color: 'black',
-                    borderRadius: '10px',
-                    transition: 'background-color 0.3s',
-                    whiteSpace: 'nowrap',
-                    height: '30px',
-                    paddingTop: '20px',
-                    paddingBottom: '5px',
-                    paddingLeft: '10px',
-                    paddingRight: '10px'
-                }}
-                onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'lightgreen'}  // Transition to light green when hovered
-                onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'green'}  // Transition back to green when not hovered
-            >
-                Contact Us
-            </Link>
-            <div className="dropdown-content">
-                <div className="submenu-link" style={{ cursor: 'pointer' }}>
-                    Use This Form <span className="arrow">&gt;</span>
-                </div>
-            </div>
+  <li className="contact-us-button">
+    <div className="dropdown">
+      <Link 
+        to="/contact" 
+        className="dropbtn"
+        onClick={() => setShowContactForm(!showContactForm)}  // Toggle the visibility of the Contact Us form
+        style={{ 
+          backgroundColor: 'green',  // Start with a green background
+          color: 'black',
+          borderRadius: '10px',
+          transition: 'background-color 0.3s',
+          whiteSpace: 'nowrap',
+          height: '30px',
+          paddingTop: '5px',
+          paddingBottom: '5px',
+          paddingLeft: '10px',
+          paddingRight: '10px'
+        }}
+        onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'lightgreen'}  // Transition to light green when hovered
+        onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'green'}  // Transition back to green when not hovered
+      >
+        Contact Us
+      </Link>
+      {showContactForm && (
+        <div className="dropdown-content">
+          <div className="submenu-link" style={{ cursor: 'pointer' }}>
+            Use This Form <span className="arrow">&gt;</span>
+          </div>
         </div>
-    </li>
-</div> {/* Closing div tag for navbar-wrapper */}
+      )}
+    </div>
+  </li>
+</div>  {/* Closing div tag for navbar-wrapper */}
+
+
+    
+    
 
 
 
+
+<div>
+  {/* ... other components */}
+  {isSmallScreen && (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }} ref={dropdownRef}>
+      <button className="responsive-button" onClick={toggleDropdown} style={{ marginTop: '20px' }}>
+        {isDropdownVisible ? '✕' : '☰'}
+      </button>
+      {isDropdownVisible && (
+        <div className="responsive-dropdown dropdown-box">
+          <ul className="simple-dropdown-list">
+            {/* Services Dropdown */}
+            <li>
+              <div onClick={() => handleItemClick('services')}>
+                <a href="#" className={clickedItem === 'services' ? 'active' : ''}>Services<span className="toggle-icon">{showSubItems['services'] ? '-' : '>'}</span></a>
+              </div>
+              {showSubItems['services'] && (
+                <ul className={`sub-list ${showSubItems['services'] ? 'show' : ''}`}>
+                  {/* Service 1 */}
+                  <li>
+                    <div onClick={() => handleItemClick('service1')}>
+                      <a href="#" className={clickedItem === 'service1' ? 'active' : ''}>Artificial Intelligence<span className="toggle-icon">{showSubItems['service1'] ? '-' : '>'}</span></a>
+                    </div>
+                    {showSubItems['service1'] && (
+                      <ul className={`sub-list ${showSubItems['service1'] ? 'show' : ''}`}>
+                        <li><a href="#">AI Consulting</a></li>
+                        <li><a href="#">MLOps Consulting</a></li>
+                      </ul>
+                    )}
+                  </li>
+                  
+                  {/* Service 2 */}
+                  <li>
+                    <div onClick={() => handleItemClick('service2')}>
+                      <a href="#" className={clickedItem === 'service2' ? 'active' : ''}>Data Engineering<span className="toggle-icon">{showSubItems['service2'] ? '-' : '>'}</span></a>
+                    </div>
+                    {showSubItems['service2'] && (
+                      <ul className={`sub-list ${showSubItems['service2'] ? 'show' : ''}`}>
+                        <li><a href="#">Data Engineering Services</a></li>
+                        <li><a href="#">Big Data Consulting</a></li>
+                      </ul>
+                    )}
+                  </li>
+                  
+                                    {/* Service 3 */}
+                  <li>
+                    <div onClick={() => handleItemClick('service2')}>
+                      <a href="#" className={clickedItem === 'service2' ? 'active' : ''}>Generative AI<span className="toggle-icon">{showSubItems['service2'] ? '-' : '>'}</span></a>
+                    </div>
+                    {showSubItems['service2'] && (
+                      <ul className={`sub-list ${showSubItems['service2'] ? 'show' : ''}`}>
+                        <li><a href="#">Generative AI Development</a></li>
+                      </ul>
+                    )}
+                  </li>
+                  
+                </ul>
+              )}
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            {/* Portfolio Dropdown */}
+            <li>
+              <div onClick={() => handleItemClick('portfolio')}>
+                <a href="#" className={clickedItem === 'portfolio' ? 'active' : ''}>Portfolio<span className="toggle-icon">{showSubItems['portfolio'] ? '-' : '>'}</span></a>
+              </div>
+              {showSubItems['portfolio'] && (
+                <ul className={`sub-list ${showSubItems['portfolio'] ? 'show' : ''}`}>
+                 
+                 
+                 {/* Portfolio 1 */}
+                  <li>
+                    <div onClick={() => handleItemClick('portfolio1')}>
+                      <a href="#" className={clickedItem === 'portfolio1' ? 'active' : ''}>Technologies<span className="toggle-icon">{showSubItems['portfolio1'] ? '-' : '>'}</span></a>
+                    </div>
+                    {showSubItems['portfolio1'] && (
+                      <ul className={`sub-list ${showSubItems['portfolio1'] ? 'show' : ''}`}>
+                        <li><a href="#">Computer Vision Solutions</a></li>
+                        <li><a href="#">NLP Solutions</a></li>
+                      </ul>
+                    )}
+                  </li>
+                 
+                 
+                 
+                 
+                 {/* Portfolio 2 */}
+                  <li>
+                    <div onClick={() => handleItemClick('portfolio2')}>
+                      <a href="#" className={clickedItem === 'portfolio2' ? 'active' : ''}>Industries<span className="toggle-icon">{showSubItems['portfolio2'] ? '-' : '>'}</span></a>
+                    </div>
+                    {showSubItems['portfolio2'] && (
+                      <ul className={`sub-list ${showSubItems['portfolio2'] ? 'show' : ''}`}>
+                        <li><a href="#">Manufacturing</a></li>
+                        <li><a href="#">Retail</a></li>
+                        <li><a href="#">Finance & Insurance</a></li>
+                        <li><a href="#">Logisitics</a></li>
+                        <li><a href="#">Aviation</a></li>
+                        <li><a href="#">Technologies</a></li>
+                      </ul>
+                    )}
+                  </li>
+                  
+                  
+                  
+                                   {/* Portfolio 3 */}
+                  <li>
+                    <div onClick={() => handleItemClick('portfolio2')}>
+                      <a href="#" className={clickedItem === 'portfolio2' ? 'active' : ''}>Case Studies<span className="toggle-icon">{showSubItems['portfolio2'] ? '-' : '>'}</span></a>
+                    </div>
+                    {showSubItems['portfolio2'] && (
+                      <ul className={`sub-list ${showSubItems['portfolio2'] ? 'show' : ''}`}>
+                        <li><a href="#">Unified Supply Chain Management</a></li>
+                    
+                      </ul>
+                    )}
+                  </li>
+                  
+                  
+                                   {/* Portfolio 4 */}
+                  <li>
+                    <div onClick={() => handleItemClick('portfolio2')}>
+                      <a href="#" className={clickedItem === 'portfolio2' ? 'active' : ''}>Read All the Case Studies<span className="toggle-icon">{showSubItems['portfolio2'] ? '-' : '>'}</span></a>
+                    </div>
+                    {showSubItems['portfolio2'] && (
+                      <ul className={`sub-list ${showSubItems['portfolio2'] ? 'show' : ''}`}>
+                      
+                      </ul>
+                    )}
+                  </li>
+                  
+                </ul>
+              )}
+            </li>
+            
+            
+            
+            
+
+  {/* Resources Dropdown */}
+  <li>
+    <div onClick={() => handleItemClick('resources')}>
+      <a href="#" className={clickedItem === 'resources' ? 'active' : ''}>Resources</a>
+    </div>
+    {showSubItems['resources'] && (
+      <ul className={`sub-list ${showSubItems['resources'] ? 'show' : ''}`}>
+        {/* Removed the expandable Resource 1 */}
+        
+      </ul>
+    )}
+  </li>
+
+
+            
+            
+        
+  {/* Blog Dropdown */}
+  <li>
+    <div onClick={() => handleItemClick('blog')}>
+      <a href="#" className={clickedItem === 'blog' ? 'active' : ''}>Blog</a>
+    </div>
+    {showSubItems['blog'] && (
+      <ul className={`sub-list ${showSubItems['blog'] ? 'show' : ''}`}>
+        {/* Removed the expandable Blog 1 and Blog 2 */}
+
+      </ul>
+    )}
+  </li>
+
+
+            
+            
+            
+        
+            
+            
+            
+            {/* Teams Dropdown */}
+            <li>
+              <div onClick={() => handleItemClick('teams')}>
+                <a href="#" className={clickedItem === 'teams' ? 'active' : ''}>Teams<span className="toggle-icon">{showSubItems['teams'] ? '-' : '>'}</span></a>
+              </div>
+              {showSubItems['teams'] && (
+                <ul className={`sub-list ${showSubItems['teams'] ? 'show' : ''}`}>
+                 
+                 
+                 {/* Team 1 */}
+                  <li>
+                    <div onClick={() => handleItemClick('team1')}>
+                      <a href="#" className={clickedItem === 'team1' ? 'active' : ''}>Career<span className="toggle-icon">{showSubItems['team1'] ? '-' : '>'}</span></a>
+                    </div>
+                    {showSubItems['team1'] && (
+                      <ul className={`sub-list ${showSubItems['team1'] ? 'show' : ''}`}>
+                        <li><a href="#">Job Opportunities</a></li>
+                      </ul>
+                    )}
+                  </li>
+                  
+                  
+                  {/* Team 2 */}
+                  <li>
+                    <div onClick={() => handleItemClick('team2')}>
+                      <a href="#" className={clickedItem === 'team2' ? 'active' : ''}>Meet Us<span className="toggle-icon">{showSubItems['team2'] ? '-' : '>'}</span></a>
+                    </div>
+                    {showSubItems['team2'] && (
+                      <ul className={`sub-list ${showSubItems['team2'] ? 'show' : ''}`}>
+                        <li><a href="#">Working Experience at Intelliverse</a></li>
+                        
+                      </ul>
+                    )}
+                  </li>
+                </ul>
+              )}
+            </li>
+            
+            
+  {/* Contact Us Dropdown */}
+  <li>
+    <div onClick={() => setShowContactForm(true)}>
+      <a href="#" className={clickedItem === 'contactUs' ? 'active' : ''}>Contact Us</a>
+    </div>
+    {showSubItems['contactUs'] && (
+      <ul className={`sub-list ${showSubItems['contactUs'] ? 'show' : ''}`}>
+        {/* Removed the expandable Contact 1 and Contact 2 */}
+
+      </ul>
+    )}
+  </li>
+
+
+            
+            
+          </ul>
+        </div>
+      )}
+    </div>
+  )}
+</div>
+
+
+
+
+
+
+
+
+
+
+    
 
 
 </ul>
 </div>
 </div>
-</div>
+
+{showContactForm && <Contact isVisible={true} onGoBack={() => setShowContactForm(false)} />}</div>
 );
 }
+
 export default Header;
-
-

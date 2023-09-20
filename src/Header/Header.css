@@ -10,7 +10,7 @@
   top: 0;
   left: 0;
   position: fixed;
-  z-index: 11000; /* Higher value than the showcase content */
+  z-index: 110000; /* Higher value than the showcase content */
   justify-content: center;
 }
 
@@ -48,7 +48,8 @@
 /* Bottom Navbar */
 
 .showcase .navbar-bottom {
-  width: 100%;
+  Top: 20px;
+  width: 120%;
   background: transparent;
   padding: 15px 5px;
   align-items: center;
@@ -105,7 +106,7 @@
 .showcase .navbar-bottom .menu-right a {
   text-decoration: none;
   display: inline-block;
-  padding: 20 20px;
+  padding: 20 30px;
   color: #1A1B1E;
   transition: all 1s ease;
   
@@ -119,6 +120,8 @@
   height: auto;
   width: 100px;
   margin-left: 100px;
+  z-index: 101;  /* Making sure it's above the dropdown */
+  position: relative; 
 }
 
 /* Common Dropdown Styles for all dropdowns */
@@ -486,7 +489,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000; /* Ensures the navbar stays above other content */
+  z-index: 100000; /* Ensures the navbar stays above other content */
 }
 
 .extended-dropdown {
@@ -500,5 +503,44 @@
 .showcase .navbar-top .left a:active, 
 .showcase .navbar-top .left a:visited {
     text-decoration: none; /* Removes underline */
+}
+
+
+
+
+/* Round button with light green border */
+.responsive-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: 2px solid lightgreen;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Vertical dropdown */
+.responsive-dropdown {
+  position: fixed;
+  top: 50px;
+  right: 10px;
+  background-color: white;
+  width: 250px;
+  border: 1px solid lightgray;
+  z-index: 1000000;
+  flex-direction: column;
+}
+
+
+/* Hide bottom navigation bar for small screens */
+@media screen and (max-width: 1300px) {
+  .navbar-bottom .menu-right {
+    display: none;
+  }
+}
+
+
+.contact-us-button {
+    margin-left: auto;
 }
 

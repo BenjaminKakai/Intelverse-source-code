@@ -8,21 +8,18 @@ function Teams() {
   };
 
   return (
-<div id="teams" className="bg-light py-3">
+    <div id="teams" className="bg-light py-3">
       <div className="text-left">
         <br />
-       
-<div className="d-flex align-items-center">
-  <h2>Meet Our Professional Teams</h2>
-  <button className="lets-talk-btn">let's work together</button>
-</div>
-
-
+        <div className="d-flex align-items-center">
+          <h2>Meet Our Professional Teams</h2>
+          <button className="lets-talk-btn">let's work together</button>
+        </div>
       </div>
+
       <div className="wrapper">
-      
+        {/* First Row */}
         <div className="card-items-row">
-        
           {/* Software Development Team */}
           <div className="card">
             <div className="card-header">
@@ -45,6 +42,10 @@ function Teams() {
               <button className="meet-team-btn">Meet Our Team</button>
             </div>
           </div>
+        </div>
+
+        {/* Second Row */}
+        <div className="card-items-row">
           {/* Data Engineering Team */}
           <div className="card">
             <div className="card-header">
@@ -56,8 +57,6 @@ function Teams() {
               <button className="meet-team-btn">Meet Our Team</button>
             </div>
           </div>
-        </div>
-        <div className="card-items-row">
           {/* DevOps Team */}
           <div className="card">
             <div className="card-header">
@@ -69,6 +68,10 @@ function Teams() {
               <button className="meet-team-btn">Meet Our Team</button>
             </div>
           </div>
+        </div>
+
+        {/* Third Row */}
+        <div className="card-items-row">
           {/* CyberSecurity Team */}
           <div className="card">
             <div className="card-header">

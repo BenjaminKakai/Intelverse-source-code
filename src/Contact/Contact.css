@@ -1,9 +1,11 @@
 .contact-container {
     display: flex;
-    width: 75vw;
-    margin: auto;
+    width: 100vw; /* This ensures the container takes up the full width of the viewport */
+    margin: 0; /* Remove auto margin to prevent centering */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     margin-top: 100px; /* Adjust based on your navbar's height */
+    position: relative; /* To ensure it overlays the home component */
+    z-index: 500000; /* Higher z-index to ensure it's in front */
 }
 
 .left-section {
@@ -36,6 +38,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: 100%; /* To ensure they take up the full width of the container */
 }
 
 .right-section textarea {
@@ -56,5 +59,21 @@
 
 .right-section button:hover {
     background-color: lightgreen;
+}
+
+/* Responsive Design for 8 inches and below */
+@media only screen and (max-width: 768px) {
+    .contact-container {
+        flex-direction: column; /* Stacks the left and right section on top of each other */
+    }
+
+    .contact-form .input-field,
+    .contact-form .message-field {
+        width: 100%; /* They should take the full width */
+    }
+
+    .contact-form .message-field textarea {
+        height: 100px; /* Adjust this as per your preference */
+    }
 }
 

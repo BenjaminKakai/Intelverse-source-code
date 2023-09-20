@@ -170,3 +170,56 @@
     
 }
 
+
+
+
+@media (max-width: 960px) {
+
+    .footer__container {
+        flex-direction: column;
+    }
+    
+    .footer__col {
+        flex-direction: column;
+    }
+    
+    .footer__left-section {
+        flex-direction: column;
+    }
+
+    .footer__contact-box {
+        flex-direction: column;
+    }
+
+    .contact-box__left, .contact-box__right {
+        display: block;
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        position: relative; 
+    }
+
+    .footer__bottom-text, .footer__social-icons {
+        justify-content: center;
+    }
+
+    /* Adjusting the padding to prevent overlap with social icons */
+    .footer__bottom-text {
+        padding-bottom: 40px; /* Adjust this value as necessary */
+    }
+
+    /* Positioning social media icons to the bottom right */
+    .footer__social-icons {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+
+    /* Reducing font size for smaller screens */
+    .footer, .footer a, .footer p, .footer h3, .footer h4 {
+        font-size: 0.8em;
+    }
+}
+
+

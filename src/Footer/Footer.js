@@ -105,10 +105,10 @@ function Footer() {
             {/* Footer Bottom */}
             <div className="footer__bottom">
                 <div className="footer__bottom-text">
-                    <p>© Intelliverse.com. All rights reserved.</p>
+                    <p>© Intelliverse.com.</p>
                     <a href="#">Terms and Conditions</a>
                     <a href="#">Policy privacy</a>
-                    <a href="#">Cookies policy</a>
+                    <a href="#">Cookies</a>
                 </div>
                 <div className="footer__social-icons">
                     <a href="#"><img src={TwitterIcon} alt="Twitter" /></a>

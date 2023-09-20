@@ -24,15 +24,24 @@ function Contact({ isVisible, onGoBack }) {
         }
     };
 
+    const scrollToTopAndShowForm = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        // You can add any additional logic here to make the contact form visible if it's not already
+    };
+
     return (
         isVisible && (
             <div className="contact-container">
                 <div className="left-section">
                     <h1>Let's discuss a solution for you.</h1>
-                    <img src="/path_to_image.jpg" alt="Profile" className="profile-pic"/>
+                    <img src="/images/contactme.jpg" alt="Profile" className="profile-pic"/>
                     <h2>Benjamin Kakai</h2>
                     <p>We will help you estimate your project.</p>
-                    <p><i className="bx bx-envelope"></i> benjaminkakaimasai@gmail.com</p>
+                    <p><i className="bx bx-envelope"></i> <a href="mailto:benjaminkakaimasai@gmail.com">benjaminkakaimasai@gmail.com</a></p>
+
                 </div>
 
                 <div className="right-section">
